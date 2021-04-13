@@ -26,7 +26,8 @@ module.exports = {
     'linebreak-style': 0,
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['js', '.jsx', '.ts', '.tsx'] }],
-    'radix': 'off',
+    radix: 'off',
     'import/prefer-default-export': 'off',
+    'no-console': 'off',
   },
 };

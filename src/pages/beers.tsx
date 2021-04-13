@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Beer from './beerlist';
 import Pagination from '../components/pagination';
 import { useFetch } from '../api';
+import { useAuth } from '../api/auth/context';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -17,11 +18,12 @@ const FlexDiv = styled.div`
 
   input {
     padding: 10px;
-    border-radius: 12px;
+    border-radius: 5px;
   }
 
   button {
     padding: 10px 15px;
+    margin-left: 10px;
   }
 `;
 
@@ -39,6 +41,7 @@ function useQuery() {
 const Beers = () => {
   const [search, setSearch] = useState('');
   const [searchURL, setSearchURL] = useState('');
+  const { logOut, currentUser } = useAuth();
 
   useEffect(() => {
     if (search) {
@@ -65,6 +68,19 @@ const Beers = () => {
               onChange={(e) => setSearch(e.currentTarget.value)}
             />
           </div>
+          <div>
+            <span>
+              Logged user:&nbsp;
+              {currentUser && currentUser.email}
+            </span>
+            <button
+              onClick={logOut}
+              type="button"
+            >
+              Logout
+            </button>
+          </div>
+          {!currentUser && <Redirect push to="/login" />}
         </FlexDiv>
 
         {status === 'fetched' && !data?.length && (

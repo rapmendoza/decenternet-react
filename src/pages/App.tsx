@@ -8,6 +8,7 @@ import Beers from './beers';
 import BeerDetails from './beerdetails';
 import Login from './login';
 import Signup from './signup';
+import { AuthProvider } from '../api/auth/context';
 
 const AppWrapper = styled.header`
   background-image: linear-gradient(141deg,#282c34,#363636 71%,#46403f);
@@ -23,20 +24,22 @@ const AppWrapper = styled.header`
 const App = () => (
   <AppWrapper>
     <Router>
-      <Switch>
-        <Route path="/" exact>
-          <Beers />
-        </Route>
-        <Route path="/beer/:id">
-          <BeerDetails />
-        </Route>
-        <Route path="/login" exact>
-          <Login />
-        </Route>
-        <Route path="/signup" exact>
-          <Signup />
-        </Route>
-      </Switch>
+      <AuthProvider>
+        <Switch>
+          <Route path="/" exact>
+            <Beers />
+          </Route>
+          <Route path="/beer/:id">
+            <BeerDetails />
+          </Route>
+          <Route path="/login" exact>
+            <Login />
+          </Route>
+          <Route path="/signup" exact>
+            <Signup />
+          </Route>
+        </Switch>
+      </AuthProvider>
     </Router>
   </AppWrapper>
 );
