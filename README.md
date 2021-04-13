@@ -1,46 +1,54 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
+# Welcome to my application.
+This is a small application made mainly with React.
+# Available Scripts
 In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
+#### `yarn start`
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `yarn test`
+## Process in creating the App:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Create local repository using [create-react-app](https://github.com/facebook/create-react-app):
+### `yarn create react-app decenternet-react.`
+2. Create remote repository. I've chosen Github.
+3. Set remote repo for the local repo:
+### `git remote add origin https://github.com/rapmendoza/decenternet-react.git`
+4.	Set default branch:
+### `git branch -M master`
+5.	Push local to remote repository:
+### `git push -u origin master`
+6. You can now start developing and push commits into `develop` branch.
 
-### `yarn build`
+## Linting Details:
+I've always appreciated these rules that have been enfored in all eslint's recommended style-guides:
+ -   Tabs: Two-spaces.
+ -   Quotes: Single.
+ -   Brace style for control blocks: Same line.
+ -   Prefer  `const`/`let`  over  `var` : True.
+ -   No trailing spaces: True.
+ -   Array bracket spacing: No spaces.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+With a few exceptions, I configured the following rules for the project:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    'linebreak-style':  0
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ -- inconsistent line breaks are produced between different OS  
+ 
+    'react/react-in-jsx-scope':  'off'
 
-### `yarn eject`
+ -- for simpler syntax
+ 
+    radix:  'off'
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ -- for simpler syntax in using parseInt()
+ 
+    'import/prefer-default-export':  'off'
+                 
+-- to use named export when exporting from a single module
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+     'no-console':  'off'
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-- to use console logging in development
